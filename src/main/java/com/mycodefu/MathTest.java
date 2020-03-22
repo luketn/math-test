@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class MathTest {
     public static void main(String[] args) {
         int[] numbers = {6, 5, 4, 2};
-        int expectedAnswer = -4;
+        int expectedAnswer = 3;
 
         Operator[] all_operators = {Operator.Divide, Operator.Multiply, Operator.Subtract, Operator.Add};
         for (Operator operator1 : all_operators) {
@@ -47,7 +47,8 @@ public class MathTest {
         workingOut.append("Working through operators in order of precedence:\n");
         workingOut.append(Arrays.toString(workingOperators)).append('\n');
 
-        Operator[] operatorPrecedentList = {Operator.Divide, Operator.Multiply, Operator.Subtract, Operator.Add};
+        //BODMAS - Bracket, Of (Square/Power), Division, Multiplication, Addition and Subtraction
+        Operator[] operatorPrecedentList = {Operator.Divide, Operator.Multiply, Operator.Add, Operator.Subtract};
         while (workingNumbers[1] != Float.MAX_VALUE) {
             outer:
             for (Operator operator : operatorPrecedentList) {
