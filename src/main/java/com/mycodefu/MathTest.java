@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class MathTest {
     public static void main(String[] args) {
         int[] numbers = {6, 5, 4, 2};
-        int expectedAnswer = 3;
+        int expectedAnswer = -4;
 
         Operator[] all_operators = {Operator.Divide, Operator.Multiply, Operator.Subtract, Operator.Add};
         for (Operator operator1 : all_operators) {
