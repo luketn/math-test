@@ -58,7 +58,7 @@ public class MathTest {
                         if (workingNumber1 == Float.MAX_VALUE || workingNumber2 == Float.MAX_VALUE) {
                             break;
                         }
-                        workingOut.append(String.format("%s %f and %f = ", operator, workingNumber1, workingNumber2));
+                        workingOut.append(String.format("%s %.1f and %.1f = ", operator, workingNumber1, workingNumber2));
                         float answer;
                         switch (operator) {
                             case Divide: {
@@ -81,7 +81,7 @@ public class MathTest {
                                 throw new IllegalStateException("Should never be another operator.");
                         }
                         workingNumbers[i] = answer;
-                        workingOut.append(answer).append('\n');
+                        workingOut.append(String.format("%.1f", answer)).append('\n');
 
                         System.arraycopy(workingNumbers, i + 2, workingNumbers, i + 1, workingNumbers.length - i - 2);
                         workingNumbers[workingNumbers.length - 1] = Float.MAX_VALUE;
@@ -94,7 +94,7 @@ public class MathTest {
             }
         }
         float finalAnswer = workingNumbers[0];
-        workingOut.append(String.format("Final answer: %f\n", finalAnswer));
+        workingOut.append(String.format("Final answer: %.1f\n", finalAnswer));
 
         return new Outcome((float) expectedAnswer == finalAnswer, workingOut.toString(), numbers, operators);
     }
